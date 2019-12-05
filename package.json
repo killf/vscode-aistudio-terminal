@@ -2,7 +2,7 @@
   "name": "vscode-aistudio-terminal",
   "displayName": "Terminal-AIStudio",
   "description": "The Terminal for AIStudio.",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "icon": "img/user.jpeg",
   "engines": {
     "vscode": "^1.40.0"

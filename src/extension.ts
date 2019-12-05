@@ -30,7 +30,10 @@ async function openTerminal() {
 	let userId = vscode.workspace.getConfiguration().get<string>("userId");
 	let projectId = vscode.workspace.getConfiguration().get<string>("projectId");
 	if (!(cookie && userId && projectId)) {
-		await vscode.window.showErrorMessage("请先设置cookie、userID和projectId！");
+		let action = await vscode.window.showErrorMessage("请先设置cookie、userID和projectId！", "Set Cookie");
+		if (action === "Set Cookie") {
+			await vscode.commands.executeCommand("aistudio.setCookie");
+		} 
 		return;
 	}
 
