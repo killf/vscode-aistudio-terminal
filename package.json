@@ -1,0 +1,94 @@
+{
+  "name": "vscode-aistudio-terminal",
+  "displayName": "Terminal-AIStudio",
+  "description": "The Terminal for AIStudio.",
+  "version": "0.2.2",
+  "icon": "img/user.jpeg",
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:aistudio.setCookie",
+    "onCommand:aistudio.openTerminal"
+  ],
+  "main": "./dist/extension.js",
+  "publisher": "killf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/killf/vscode-aistudio-terminal.git"
+  },
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "cookie": {
+          "type": "string",
+          "default": "",
+          "description": "The cookie for AIStudio."
+        },
+        "userId": {
+          "type": "string",
+          "default": "",
+          "description": "The userId for AIStudio."
+        },
+        "projectId": {
+          "type": "string",
+          "default": "",
+          "description": "The projectId for AIStudio."
+        },
+        "shellId": {
+          "type": "number",
+          "default": "-1",
+          "description": "The shellId for AIStudio."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "aistudio.setCookie",
+        "title": "Set Cookie for AIStuio.",
+        "category": "AIStudio"
+      },
+      {
+        "command": "aistudio.openTerminal",
+        "title": "Open Terminal for AIStuio.",
+        "category": "AIStudio"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "aistudio.openTerminal",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "vscode:prepublish": "webpack --mode production",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/request-promise": "^4.1.45",
+    "@types/vscode": "^1.40.0",
+    "@types/websocket": "^1.0.0",
+    "glob": "^7.1.5",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "string-random": "^0.1.3",
+    "websocket": "^1.0.30"
+  }
+}
