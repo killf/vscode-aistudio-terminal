@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { client, connection } from "websocket";
+import stringRandom = require('string-random');
 
 
 export class Terminal implements vscode.Pseudoterminal {
@@ -60,7 +61,7 @@ export class Terminal implements vscode.Pseudoterminal {
             if (initialDimensions) self.setDimensions(initialDimensions);
         });
 
-        let url = `wss://aistudio.baidu.com/user/${this.userId}/${this.projectId}//terminals/websocket/${this.shellId}`;
+        let url = `wss://aistudio.baidu.com/bdvgpu/user/${this.userId}/${this.projectId}//terminals/websocket/${this.shellId}`;
         self.ws.connect(url, "", "https://aistudio.baidu.com", {
             cookie: self.cookie,
             "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",
